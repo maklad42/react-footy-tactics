@@ -1,9 +1,13 @@
 import logo from './logo.svg';
-import './App.css';
-import Container from './components/container';
+import { Card } from './components';
+import movies from './data';
 
 export default function App() {
   return (
-    <Container />
+    <main>
+      {movies.map((movie) => (
+        <Card className="mr" />
+      ))}
+    </main>
   );
 }
