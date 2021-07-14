@@ -35,7 +35,16 @@ Card.Text = function CardText({ classes, children, ...restProps }) {
 };
 
 Card.Image = function CardImage({ src, alt, classes, ...restProps }) {
+  // eslint-disable-next-line prettier/prettier
   return (
-    <Image src={src} alt={alt} className={(classNames('card__image'), classes)} {...restProps} />
+    <Image src={src} alt={alt} classNames={(classNames('card__image'), classes)} {...restProps} />
+  );
+};
+
+Card.Button = function CardButton({ classes, children, ...restProps }) {
+  return (
+    <Button type="button" className={classNames('card__button', classes)} {...restProps}>
+      {children}
+    </Button>
   );
 };
