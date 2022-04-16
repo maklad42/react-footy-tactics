@@ -1,3 +1,3 @@
-import { Card } from './Card';
+import { Pitch } from './Pitch';
 
-export { Card };
+export { Pitch };
