@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
-import { Pitch } from './components/Pitch';
+import Bench from './components/Bench';
+import Pitch from './components/Pitch';
 // import movies from './data';
 
 function App() {
   return (
     <main>
+      <Bench />
       <Pitch />
       {/* {movies.map((movie) => (
         <Card className="mr" key={`${movie.id}'}`}>

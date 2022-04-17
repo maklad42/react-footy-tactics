@@ -30,9 +30,10 @@ body {
 }
 
 main {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 200px 1fr;
   justify-content: center;
 }
 
