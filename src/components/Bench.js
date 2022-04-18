@@ -17,8 +17,15 @@ const BenchStyles = styled.div`
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background-color: blue;
     cursor: pointer;
+  }
+
+  .player.blue {
+    background-color: blue;
+  }
+
+  .player.red {
+    background-color: red;
   }
 `;
 
@@ -28,8 +35,6 @@ function Bench() {
       <h2>Bench Warmers</h2>
       <div className="player-discs">
         <div className="player blue" />
-        <div className="player blue" />
-        <div className="player red" />
         <div className="player red" />
       </div>
     </BenchStyles>
