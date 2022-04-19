@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Player from './Player';
 
 const BenchStyles = styled.div`
   background-color: #879ba8;
@@ -34,8 +35,10 @@ function Bench() {
     <BenchStyles>
       <h2>Bench Warmers</h2>
       <div className="player-discs">
-        <div className="player blue" />
-        <div className="player red" />
+        <Player clr="blue" />
+        <Player clr="blue" />
+        <Player clr="red" />
+        <Player clr="red" />
       </div>
     </BenchStyles>
   );
