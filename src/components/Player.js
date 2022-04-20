@@ -4,6 +4,7 @@ import { useDrag } from 'react-dnd';
 function Player({ clr }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'player',
+    item: { clr },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
