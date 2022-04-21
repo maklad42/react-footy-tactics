@@ -35,10 +35,10 @@ function Bench() {
     <BenchStyles>
       <h2>Bench Warmers</h2>
       <div className="player-discs">
-        <Player clr="blue" />
-        <Player clr="blue" />
-        <Player clr="red" />
-        <Player clr="red" />
+        <Player clr="blue" key="b1" />
+        <Player clr="blue" key="b2" />
+        <Player clr="red" key="r1" />
+        <Player clr="red" key="r2" />
       </div>
     </BenchStyles>
   );

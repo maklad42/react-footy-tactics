@@ -10,13 +10,28 @@ const PitchStyles = styled.div`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  .player {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  .player.blue {
+    background-color: blue;
+  }
+
+  .player.red {
+    background-color: red;
+  }
 `;
 
 function Pitch() {
-  const [field, setField] = useState([]);
+  const [pitch, setPitch] = useState([]);
 
   const addPlayerToPitch = (clr) => {
     console.log(clr);
+    setPitch((oldPitch) => [...oldPitch, clr]);
   };
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'player',
@@ -25,7 +40,13 @@ function Pitch() {
       isOver: !!monitor.isOver(),
     }),
   }));
-  return <PitchStyles ref={drop} />;
+  return (
+    <PitchStyles ref={drop}>
+      {pitch.map((player, id) => (
+        <Player clr={player} key={id} />
+      ))}
+    </PitchStyles>
+  );
 }
 
 export default Pitch;
