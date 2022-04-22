@@ -1,23 +1,5 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import styled from 'styled-components';
-
-const PlayerStyles = styled.div`
-  .player {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-
-  .player.blue {
-    background-color: blue;
-  }
-
-  .player.red {
-    background-color: red;
-  }
-`;
 
 function Player({ clr, id }) {
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -29,9 +11,10 @@ function Player({ clr, id }) {
   }));
   return (
     // eslint-disable-next-line prettier/prettier
-    <PlayerStyles
+    <div
       ref={drag}
-      className={`player ${clr}`}
+      className={`player copy ${clr}`}
+      draggable
       key={id}
       style={{ border: isDragging ? '5px solid pink' : '0px' }}
     />

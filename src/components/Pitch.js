@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import styled from 'styled-components';
 import pitchImg from '../images/pitch.jpg';
-import Player from './Player';
+import PlayerCopy from './PlayerCopy';
 
 const PitchStyles = styled.div`
   background-color: #637b63;
@@ -17,6 +17,10 @@ const PitchStyles = styled.div`
     cursor: pointer;
   }
 
+  .player.copy {
+    position: absolute;
+  }
+
   .player.blue {
     background-color: blue;
   }
@@ -24,10 +28,27 @@ const PitchStyles = styled.div`
   .player.red {
     background-color: red;
   }
+
+  .clearPitch {
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    padding: 0.5rem;
+    margin: 2rem;
+    width: 10rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(1, 1, 1, 0.3);
+  }
 `;
 
 function Pitch() {
   const [pitch, setPitch] = useState([]);
+
+  const clearPitch = () => {
+    setPitch([]);
+  };
 
   const addPlayerToPitch = (clr) => {
     console.log(clr);
@@ -43,8 +64,13 @@ function Pitch() {
   return (
     <PitchStyles ref={drop}>
       {pitch.map((player, id) => (
-        <Player clr={player} key={id} />
+        <PlayerCopy clr={player} key={id} draggable />
       ))}
+      <div className="clearPitch">
+        <button type="button" onClick={clearPitch}>
+          Clear
+        </button>
+      </div>
     </PitchStyles>
   );
 }
