@@ -13,7 +13,7 @@ function Player({ clr, id }) {
     // eslint-disable-next-line prettier/prettier
     <div
       ref={drag}
-      className={`player copy ${clr}`}
+      className={`player ${clr}`}
       draggable
       key={id}
       style={{ border: isDragging ? '5px solid pink' : '0px' }}

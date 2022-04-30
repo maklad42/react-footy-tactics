@@ -14,7 +14,7 @@ function PlayerCopy({ clr, id }) {
     // eslint-disable-next-line prettier/prettier
     <div
       id={idx}
-      className={`player ${clr}`}
+      className={`player copy ${clr}`}
       draggable
       key={id}
       ref={drag}

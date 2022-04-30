@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import styled from 'styled-components';
 import pitchImg from '../images/pitch.jpg';
+import ballImg from '../images/ball.png';
 import PlayerCopy from './PlayerCopy';
 
 const PitchStyles = styled.div`
@@ -10,7 +11,8 @@ const PitchStyles = styled.div`
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  .player {
+  .player,
+  .ball {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -27,6 +29,10 @@ const PitchStyles = styled.div`
 
   .player.red {
     background-color: red;
+  }
+
+  .ball {
+    background-image: url($ballImg);
   }
 
   .clearPitch {
