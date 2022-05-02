@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Ball from './Ball';
 import Player from './Player';
-import ballImg from '../images/ball.png;';
+import ballImg from '../images/ball.png';
 
 const BenchStyles = styled.div`
   background-color: #879ba8;
@@ -26,6 +25,11 @@ const BenchStyles = styled.div`
 
   .ball {
     background-image: url(${ballImg});
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
   }
 
   .player.blue {
@@ -42,11 +46,11 @@ function Bench() {
     <BenchStyles>
       <h2>Bench Warmers</h2>
       <div className="player-discs">
-        <Player clr="blue" key="b1" />
-        <Player clr="blue" key="b2" />
-        <Player clr="red" key="r1" />
-        <Player clr="red" key="r2" />
-        <Ball />
+        <Player clr="blue" typ="player" key="b1" />
+        <Player clr="blue" typ="player" key="b2" />
+        <Player clr="red" typ="player" key="r1" />
+        <Player clr="red" typ="player" key="r2" />
+        <Player clr="white" typ="ball" key="w1" />
       </div>
     </BenchStyles>
   );

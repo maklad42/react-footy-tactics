@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 
-function PlayerCopy({ clr, id }) {
+function PlayerCopy({ clr, typ, id }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'playercopy',
+    item: { clr, typ },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -14,7 +15,7 @@ function PlayerCopy({ clr, id }) {
     // eslint-disable-next-line prettier/prettier
     <div
       id={idx}
-      className={`player copy ${clr}`}
+      className={`${typ} copy ${clr}`}
       draggable
       key={id}
       ref={drag}

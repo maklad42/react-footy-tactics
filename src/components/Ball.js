@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 
-function Ball() {
+function Ball({ clr }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'ball',
+    item: { clr },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),

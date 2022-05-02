@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import styled from 'styled-components';
@@ -19,7 +20,8 @@ const PitchStyles = styled.div`
     cursor: pointer;
   }
 
-  .player.copy {
+  .player.copy,
+  .ball {
     position: absolute;
   }
 
@@ -32,7 +34,12 @@ const PitchStyles = styled.div`
   }
 
   .ball {
-    background-image: url($ballImg);
+    background-image: url(${ballImg});
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
   }
 
   .clearPitch {
@@ -56,13 +63,13 @@ function Pitch() {
     setPitch([]);
   };
 
-  const addPlayerToPitch = (clr) => {
-    console.log(clr);
-    setPitch((oldPitch) => [...oldPitch, clr]);
+  const addPlayerToPitch = (clr, typ) => {
+    console.log({ clr, typ });
+    setPitch((oldPitch) => [...oldPitch, [clr, typ]]);
   };
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'player',
-    drop: (item) => addPlayerToPitch(item.clr),
+    drop: (item) => addPlayerToPitch(item.clr, item.typ),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
@@ -70,7 +77,7 @@ function Pitch() {
   return (
     <PitchStyles ref={drop}>
       {pitch.map((player, id) => (
-        <PlayerCopy clr={player} key={id} draggable />
+        <PlayerCopy clr={player[0]} typ={player[1]} key={id} draggable />
       ))}
       <div className="clearPitch">
         <button type="button" onClick={clearPitch}>
