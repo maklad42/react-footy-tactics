@@ -23,6 +23,7 @@ const PitchStyles = styled.div`
   .player.copy,
   .ball {
     position: absolute;
+    top: 50px;
   }
 
   .player.blue {
@@ -42,17 +43,23 @@ const PitchStyles = styled.div`
     height: 35px;
   }
 
-  .clearPitch {
+  .clearPitch,
+  .clearSingle {
     position: absolute;
     bottom: 0;
-    height: 3rem;
+    height: 5rem;
     padding: 0.5rem;
     margin: 2rem;
-    width: 10rem;
+    width: 15rem;
     display: grid;
     align-items: center;
     justify-items: center;
     background-color: rgba(1, 1, 1, 0.3);
+  }
+
+  .clearSingle {
+    border: dotted 2px red;
+    bottom: 7.5rem;
   }
 `;
 
@@ -69,7 +76,10 @@ function Pitch() {
   };
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'player',
-    drop: (item) => addPlayerToPitch(item.clr, item.typ),
+    drop: (item, monitor) => {
+      addPlayerToPitch(item.clr, item.typ);
+      console.log(monitor.getClientOffset());
+    },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
@@ -81,9 +91,10 @@ function Pitch() {
       ))}
       <div className="clearPitch">
         <button type="button" onClick={clearPitch}>
-          Clear
+          Clear Pitch
         </button>
       </div>
+      <div className="clearSingle">Remove Player</div>
     </PitchStyles>
   );
 }
