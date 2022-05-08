@@ -24,7 +24,6 @@ body {
   font-family: 'Roboto', sans-serif;
   color: #202020;
   background-color: #fbfbfb;
-  font-smooth: always;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
 }
@@ -35,7 +34,6 @@ main {
   height: 100vh;
   grid-template-columns: 200px 1fr;
   justify-content: center;
-  // overflow: hidden;
 }
 
 .mr {
