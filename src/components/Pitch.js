@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import pitchImg from '../images/pitch.jpg';
 import ballImg from '../images/ball.png';
 import PlayerCopy from './PlayerCopy';
+import RemoveSingle from './RemoveSingle';
 
 const PitchStyles = styled.div`
   background-color: #637b63;
@@ -71,7 +72,7 @@ function Pitch() {
   };
 
   const addPlayerToPitch = (clr, typ) => {
-    console.log({ clr, typ });
+    // console.log({ clr, typ });
     setPitch((oldPitch) => [...oldPitch, [clr, typ]]);
   };
   const [{ isOver }, drop] = useDrop(() => ({
@@ -79,6 +80,8 @@ function Pitch() {
     drop: (item, monitor) => {
       addPlayerToPitch(item.clr, item.typ);
       console.log(monitor.getClientOffset());
+      // xpos = monitor.getClientOffset().x;
+      // ypos = monitor.getClientOffset().y;
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -94,7 +97,7 @@ function Pitch() {
           Clear Pitch
         </button>
       </div>
-      <div className="clearSingle">Remove Player</div>
+      <RemoveSingle />
     </PitchStyles>
   );
 }
